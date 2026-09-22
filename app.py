@@ -9,8 +9,6 @@ ADMIN_PASSWORD = "EliteWash2026!"
 SECRET_ADMIN_PATH = "/elite-admin-panel"
 GOOGLE_BUSINESS_LINK = "https://share.google/CxgjWPXmTkbV3VZaz"
 
-# --- CLOUDINARY CONFIGURATION ---
-try:
     # Cloudinary Setup from Environment Variables
 HAS_CLOUDINARY = False
 try:
