@@ -11,17 +11,21 @@ GOOGLE_BUSINESS_LINK = "https://share.google/CxgjWPXmTkbV3VZaz"
 
 # --- CLOUDINARY CONFIGURATION ---
 try:
+    # Cloudinary Setup from Environment Variables
+HAS_CLOUDINARY = False
+try:
     import cloudinary
     import cloudinary.uploader
-    cloudinary.config( 
-      cloud_name = "ple2ovph", 
-      api_key = "775655745774232", 
-      api_secret = "i-iRyEvgCTxrLBDGbYF3E8EvRkk",
-      secure = True
+    cloudinary.config(
+        cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME"),
+        api_key = os.environ.get("CLOUDINARY_API_KEY"),
+        api_secret = os.environ.get("CLOUDINARY_API_SECRET"),
+        secure = True
     )
     HAS_CLOUDINARY = True
-except ImportError:
+except Exception as e:
     HAS_CLOUDINARY = False
+    
 
 # --- DATABASE SETUP ---
 def init_db():
